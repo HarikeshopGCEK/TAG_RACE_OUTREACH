@@ -1,10 +1,10 @@
 # WEBBOT - WiFi Controlled Robot
 
-This project is an ESP8266-based robot controller that allows you to control a robot over your WiFi network using a web browser. The robot can move forward, backward, left, right, and stop via a simple web interface.
+This project is an ESP8266-based robot controller that allows you to control a robot over WiFi using a web browser. The robot can move forward, backward, left, right, and stop via a simple web interface.
 
 ## Features
 
-- Connects to your existing WiFi network (Station mode)
+- ESP8266 creates its own WiFi network (Access Point mode)
 - Hosts a web server for robot control
 - Simple and responsive web-based control panel
 - Real-time control of motors via browser buttons
@@ -30,12 +30,12 @@ This project is an ESP8266-based robot controller that allows you to control a r
 
 ## Setup
 
-1. **Edit WiFi Credentials**  
-   In `src/main.cpp`, set your WiFi SSID and password:
+1. **Edit WiFi Credentials (Optional)**  
+   In `src/main.cpp`, you can set a custom SSID and password for the ESP8266 Access Point:
 
    ```cpp
-   char ssid[] = "YOUR_SSID";
-   char pass[] = "YOUR_PASSWORD";
+   char ssid[] = "WEBBOT_AP";      // Default SSID for robot AP
+   char pass[] = "robot123";       // Default password for robot AP
    ```
 
 2. **Upload the Code**  
@@ -46,11 +46,12 @@ This project is an ESP8266-based robot controller that allows you to control a r
 
 4. **Connect to the Robot**
 
-   - After boot, the ESP8266 will connect to your WiFi.
-   - Open the Serial Monitor at 115200 baud to find the robot's IP address.
+   - After boot, the ESP8266 will start its own WiFi network (default SSID: `WEBBOT_AP`).
+   - On your phone or computer, connect to this WiFi network using the set SSID and password.
+   - Open the Serial Monitor at 115200 baud to find the robot's IP address (usually `192.168.4.1`).
 
 5. **Control via Browser**
-   - Enter the IP address in your browser.
+   - In your browser, enter the robot's IP address (e.g., `192.168.4.1`).
    - Use the on-screen buttons to control the robot.
 
 ## Web Interface
@@ -63,7 +64,7 @@ This project is an ESP8266-based robot controller that allows you to control a r
 
 ## Notes
 
-- Ensure your phone/computer is on the same WiFi network as the robot.
+- Your phone/computer must be connected to the robot's WiFi network (Access Point) to control it.
 - Adjust motor speed by changing the `SPEED` macro in `main.cpp`.
 
 ## License
