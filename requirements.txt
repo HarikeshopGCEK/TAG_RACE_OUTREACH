@@ -1,0 +1,10 @@
+# Color Selector App Requirements
+# This app uses only built-in Python libraries, no additional packages required
+
+# Built-in libraries used:
+# - tkinter (GUI framework)
+# - json (data serialization)
+# - os (file operations)
+# - random (random color generation)
+
+# Python 3.6+ required for f-string support
